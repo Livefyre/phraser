@@ -105,9 +105,9 @@ json::Object* SequenceDetector<Atom, Token, AtomTokenComparer>::ToJSON() const {
         block_objects.emplace_back(new json::Object(option_objects));
     }
 
-    return new json::Object({
-        {"blocks", new json::Object(block_objects)},
-    });
+    auto data = map<string, json::Object*>();
+    data["blocks"] = new json::Object(block_objects);
+    return new json::Object(data);
 }
 
 template <typename Atom, typename Token, typename AtomTokenComparer>
