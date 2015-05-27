@@ -18,8 +18,6 @@ COMMON_FLAGS = \
 	-Wall \
 	-Wextra \
 	-Werror \
-	-Wno-c++98-compat-pedantic \
-	-Wno-covered-switch-default \
 	-Wno-padded \
 	-Wno-unknown-pragmas \
 
