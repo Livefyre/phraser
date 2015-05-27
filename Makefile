@@ -12,10 +12,9 @@ BUILD_DIR = $(BUILD_ROOT)/$(SRC_ROOT)
 TEST_FILE = tests/data/50k_comments.txt
 
 COMMON_FLAGS = \
-	-std=c++11 \
+	-std=c++0x \
 	-O3 \
 	-I$(SRC_ROOT) \
-	-Wpedantic \
 	-Wall \
 	-Wextra \
 	-Werror \
