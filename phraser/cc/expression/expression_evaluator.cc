@@ -48,10 +48,10 @@ json::Object* ExprEvalVocabulary::ToJSON() const {
         expr_ss.emplace_back(s);
     }
 
-    return new json::Object({
-        {"tokens", new json::Object(tokens_)},
-        {"expressions", new json::Object(expr_ss)},
-    });
+    auto data = map<string, json::Object*>();
+    data["tokens"] = new json::Object(tokens_);
+    data["expressions"] = new json::Object(expr_ss);
+    return new json::Object(data);
 }
 
 void ExprEvalVocabulary::Clear() {
@@ -167,13 +167,13 @@ json::Object* ExpressionEvaluator::ToJSON() const {
         token2precomputed[it.first] = new json::Object(it.second);
     }
 
-    return new json::Object({
-        {"precomputable_evaluators", new json::Object(type2precomputable)},
-        {"dynamic_evaluators", new json::Object(type2dynamic)},
-        {"all_at_once_evaluators", new json::Object(type2allatonce)},
-        {"vocabulary", vocab_.ToJSON()},
-        {"token2precompted", new json::Object(token2precomputed)},
-    });
+    auto data = map<string, json::Object*>();
+    data["precomputable_evaluators"] = new json::Object(type2precomputable);
+    data["dynamic_evaluators"] = new json::Object(type2dynamic);
+    data["all_at_once_evaluators"] = new json::Object(type2allatonce);
+    data["vocabulary"] = vocab_.ToJSON();
+    data["token2precompted"] = new json::Object(token2precomputed);
+    return new json::Object(data);
 }
 
 bool ExpressionEvaluator::AddToken(

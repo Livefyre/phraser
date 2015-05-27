@@ -16,11 +16,11 @@ json::Object* Expression::ToJSON() const {
         dim2values[it.first] = new json::Object(it.second);
     }
 
-    return new json::Object({
-        {"type", new json::Object(type_)},
-        {"args", new json::Object(args_)},
-        {"dimension2values", new json::Object(dim2values)},
-    });
+    auto data = map<string, json::Object*>();
+    data["type"] = new json::Object(type_);
+    data["args"] = new json::Object(args_);
+    data["dimension2values"] = new json::Object(dim2values);
+    return new json::Object(data);
 }
 
 bool Expression::AcceptsFeatures(

@@ -27,10 +27,10 @@ json::Object* ExpressionTypeEvaluator::ToJSON() const {
         dim2values[dim] = new json::Object(possible_values);
     }
 
-    return new json::Object({
-        {"type", new json::Object(type_)},
-        {"dimension2possible_values", new json::Object(dim2values)},
-    });
+    auto data = map<string, json::Object*>();
+    data["type"] = new json::Object(type_);
+    data["dimension2possible_values"] = new json::Object(dim2values);
+    return new json::Object(data);
 }
 
 bool ExpressionTypeEvaluator::IsExpressionPossible(
