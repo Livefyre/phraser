@@ -1,22 +1,5 @@
 .PHONY: clean coverage develop env extras package release test virtualenv
 
-USE_CLANG = 1
-
-UNAME_S = $(shell uname -s)
-ifeq ($(UNAME_S), Darwin)
-	# Using clang for binary compatibility with boost.
-	# CC = g++-4.8
-	USE_CLANG = 1
-else
-	USE_CLANG = 0
-endif
-
-ifeq ($(USE_CLANG), 1)
-	CC = clang++
-else
-	CC = g++
-endif
-
 PYENV = . env/bin/activate;
 PYTHON = $(PYENV) python
 EXTRAS_REQS := $(wildcard requirements-*.txt)
