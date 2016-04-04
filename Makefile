@@ -32,7 +32,7 @@ BUILD_ROOT = $(shell $(PYTHON) ./scripts/get_build_dir.py)
 BUILD_DIR = $(BUILD_ROOT)/$(SRC_ROOT)
 TEST_FILE = tests/data/50k_comments.txt
 
-NOSEARGS = --nocapture --with-xunit
+NOSEARGS = --nocapture --with-xunit --with-xcoverage
 
 COMMON_FLAGS = \
 	-std=c++11 \
