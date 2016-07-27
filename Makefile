@@ -111,6 +111,13 @@ compare_against_impermium $(COMPARE_BIN): $(O_INTERMEDIATES)
 	mkdir -p $(BIN_DIR)
 	$(CC) $(CC_FLAGS) $(O_INTERMEDIATES) $(COMPARE_MAIN) -o $(COMPARE_BIN) $(LD_FLAGS)
 
+REPL_MAIN = $(SRC_ROOT)/tools/repl.cpp
+REPL_BIN = $(BIN_DIR)/repl
+
+repl $(COMPARE_BIN): $(O_INTERMEDIATES)
+	mkdir -p $(BIN_DIR)
+	$(CC) $(CC_FLAGS) $(O_INTERMEDIATES) $(REPL_MAIN) -o $(REPL_BIN) $(LD_FLAGS)
+
 .PHONY: memcheck_cc memcheck_python
 
 memcheck_cc: compare_against_impermium
