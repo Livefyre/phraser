@@ -113,9 +113,7 @@ int main(int argc, char* argv[]) {
     string line;
     AnalysisOptions options;
     AnalysisResult result;
-    while (true) {
-        printf("> ");
-        getline(cin, line);
+    while (getline(cin, line)) {
         ustring text;
         UnicodeFromBytes(line, &text);
         if (!anal.Analyze(text, options, &result, &error)) {
@@ -125,6 +123,4 @@ int main(int argc, char* argv[]) {
 
         OutputResult(result);
     }
-
-    printf("OK\n");
 }
