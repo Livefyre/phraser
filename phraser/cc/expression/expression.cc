@@ -30,7 +30,7 @@ bool Expression::AcceptsFeatures(
 
         auto jt = dimension2values_.find(dim_we_have);
         if (jt == dimension2values_.end()) {
-            return false;
+            continue;
         }
 
         auto& value_we_have = it.second;
