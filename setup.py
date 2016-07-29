@@ -132,7 +132,7 @@ phraser = Extension(
 
 setup(
     name='phraser',
-    version='0.1.10',
+    version='0.1.11',
     author='James Knighton',
     author_email='iamknighton@gmail.com',
     description='Detects phrases in English text',
